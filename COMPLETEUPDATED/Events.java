@@ -12,40 +12,12 @@ public class Events{
 
 	}
 	
-
 	public boolean isEmpty(){
 		return size == 0;
 	}
 
-	public void addEvent(){
-		Scanner scan = new Scanner(System.in); //user input for date
-		Calendar userCal = Calendar.getInstance();  //new calendar instance
-		Calendar now = Calendar.getInstance();
-		System.out.println("\nThe current date/time is: " + now.getTime());
-		int month, day, year, hour, min, date;
-		String event;
-		System.out.print("Please enter a month MM: ");
-		month = scan.nextInt();
-		System.out.print("Please enter a day DD: ");
-		day = scan.nextInt();
-		System.out.print("Please enter a year YYYY: ");
-		year = scan.nextInt();
-		System.out.print("Please enter an hour of the day (0-23): ");
-		hour = scan.nextInt();
-		System.out.print("Please enter the minute of the hour (00-59): ");
-		min = scan.nextInt();
-
-		Scanner eventScan = new Scanner(System.in);
-		System.out.print("Please enter the event: ");
-		event = eventScan.nextLine();
-
-		userCal.set(year, month-1, day, hour, min);
-
-		long miliTime = userCal.getTimeInMillis();
-		ENode u = new ENode(userCal, event, null);
-
-	
-
+	public void addEvent(Calendar date, String event){
+		ENode u = new ENode(date, event, null);
 		if(isEmpty()){
 			head = u;
 		}
@@ -80,7 +52,26 @@ public class Events{
 class eventTest{
 	public static void main(String[] args){
 		Events test = new Events();
-		test.addEvent();
+		Calendar userCal = Calendar.getInstance();  //new calendar instance
+		int month, day, year, hour, min, date;
+		Scanner scan = new Scanner(System.in); //user input for date
+		System.out.print("Please enter a month MM: ");
+		month = scan.nextInt();
+		System.out.print("Please enter a day DD: ");
+		day = scan.nextInt();
+		System.out.print("Please enter a year YYYY: ");
+		year = scan.nextInt();
+		System.out.print("Please enter an hour of the day (0-23): ");
+		hour = scan.nextInt();
+		System.out.print("Please enter the minute of the hour (00-59): ");
+		min = scan.nextInt();
+		userCal.set(year, month-1, day, hour, min);
+		
+		String event;
+		Scanner eventScan = new Scanner(System.in);
+		System.out.print("Please enter the event: ");
+		event = eventScan.nextLine();
+		test.addEvent(userCal, event);
 		// test.addEvent();
 		test.displayEvents();
 
