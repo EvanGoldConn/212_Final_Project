@@ -63,14 +63,16 @@ public class BSTFriends{
 	}
 		
 	public BSTNode remove(String k){
+		// System.out.println("removing"+" "+k);
 		BSTNode returnV;
 		if (isEmpty()){
 			return null;
 		}
 		else{
 			BSTNode v = find(k, root);
+
 			if (v == null){
-				System.out.println(5);
+				// System.out.println("can't remove, not found");
 				return null;
 
 			}
@@ -78,23 +80,24 @@ public class BSTFriends{
 
 			if(v.left() == null && v.right() == null) { // CASE 1: if v is a leaf, no children
 				replace(v,null);	
-				System.out.println(1);	
+				// System.out.println("first case remove");	
 			}
 			//CASE 2: V has 1 child
 			else if(v.left() != null && v.right() == null){ //if v has 1 left child
 				replace(v, v.left());
-				System.out.println(2);
+				// System.out.println("second case remove..");
 			}
 			else if(v.left() == null && v.right() != null){//if v has 1 right child
 				replace(v, v.right());
-				System.out.println(3);
+				// System.out.println("second case remove..");
 			}
 
 			else if(v.left() != null && v.right() != null){ //CASE 3: V has 2 children 
 				BSTNode successor = getMin(v.right());
 				v.setKey(successor.key());
 				replace(successor, successor.right());
-				System.out.println(4);
+				// System.out.println("third case remove..");
+
 			}
 
 			size--;
@@ -126,10 +129,11 @@ public class BSTFriends{
 	
 	
 	public BSTNode find(String k, BSTNode v){
-		if(v==null || v.key() == k){ //why is V null?? are we adding things wrong? 
-			System.out.println(6);
+		if(v==null || v.key().equals(k)){ //why is V null?? are we adding things wrong? 
+			// System.out.println("base case of find");
 			return v;
 		}else{
+			// System.out.println("not found yet..");
 			if (k.compareTo(v.key()) > 0){
 				return find(k,v.right());	
 			}else{
@@ -163,11 +167,14 @@ public class BSTFriends{
 class BSTFriendsTest{
 	public static void main(String[] args){
 		BSTFriends test = new BSTFriends();
-		test.addFriend("bgould");
+		// test.addFriend("bgould");
 		test.addFriend("egoldsmi");
-		test.addFriend("zzzzzzzzz");
-		test.addFriend("zzzzzzzzzzzzzzz");
-		test.addFriend("abc");
+		test.addFriend("zbeucler");
+		String name = "wtarimo";
+		test.addFriend(name);
+		test.inOrder(test.root());
+		String name2 = "wtarimo";
+		test.remove(name2);
 		test.inOrder(test.root());
 
 	}
