@@ -9,7 +9,11 @@ public class Timeline{
 		tail = null;
 		size = 0;
 	}
-
+	
+	public TNode getHead() {
+		return head;
+	}
+	
 	/**
 	 * method addPost, adds a post to users timeline
 	 * @param v,c
