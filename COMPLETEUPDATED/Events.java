@@ -20,6 +20,10 @@ public class Events{
 		return head;
 	}
 	
+	public int getSize() {
+		return size;
+	} 
+	
 	public void addEvent(Calendar date, String event){
 		ENode u = new ENode(date, event, null);
 		if(isEmpty()){
