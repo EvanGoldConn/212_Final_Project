@@ -16,6 +16,10 @@ public class Events{
 		return size == 0;
 	}
 
+	public ENode getHead() {
+		return head;
+	}
+	
 	public void addEvent(Calendar date, String event){
 		ENode u = new ENode(date, event, null);
 		if(isEmpty()){
