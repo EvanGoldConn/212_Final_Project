@@ -36,7 +36,7 @@ public class ENode{
 	
 }
 
-class mainMethod1{ //testing TNode class
+class mainMethod1{ //testing ENode class
 	public static void main(String[] args){
 		// ENode test = new ENode("4 21 2019", "Lunch Date w/ Friend", null);
 		// ENode test1 = new ENode("5 10 2019", "School Dance", null);
