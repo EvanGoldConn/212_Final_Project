@@ -63,6 +63,10 @@ public class HashTable{
 		int hashKey = hornerHash(key);
 		table[hashKey] = null;
 	}
+	
+	public Person[] getHash() {
+		return table;
+	}
 
 }
 
