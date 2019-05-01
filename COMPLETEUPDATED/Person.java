@@ -3,7 +3,7 @@ public class Person {
 
     private String firstName;
     private String lastName;
-    public PriorityQueue events;
+    public Events events;
     private int gradYear;
     private String email;
     private String pass;
