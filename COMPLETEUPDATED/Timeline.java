@@ -14,6 +14,10 @@ public class Timeline{
 		return head;
 	}
 	
+	public int getSize() {
+		return size;
+	}
+	
 	/**
 	 * method addPost, adds a post to users timeline
 	 * @param v,c
