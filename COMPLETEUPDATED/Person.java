@@ -74,7 +74,11 @@ public class Person {
         }
         return emailKey;
     }
-
+    
+    public Timeline getTimeline() {
+        return timeline;
+    }
+    
     public void addTimelinePost(String v, String c) {
         timeline.addPost(v, c);
     }
