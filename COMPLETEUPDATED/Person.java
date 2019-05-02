@@ -23,7 +23,9 @@ public class Person {
         timeline = new Timeline();
         friends = new BSTFriends();
     }
-
+    public String getFullName() {
+         return firstName + " " + lastName;
+     }
     public String getFirstName() {
         return firstName;
     }
