@@ -15,7 +15,7 @@ public class Person {
         lastName = l;
         // email.newEmail(e);
         email = e;
-        events = new PriorityQueue();
+        events = new Events();
         // gradYear.setYear(y);
         gradYear = y;
         // pass.newPassword(p);
@@ -30,10 +30,6 @@ public class Person {
 
     public String getLastName() {
         return lastName;
-    }
-    
-    public String getFullName() {
-        return firstName + " " + lastName;
     }
 
     // public String getEmail() {
@@ -74,11 +70,18 @@ public class Person {
         }
         return emailKey;
     }
-    
-    public Timeline getTimeline() {
-        return timeline;
+
+    private String returnEmailKey(String inputEmail){
+        int i = 0;
+        String emailKey = "";
+        while(inputEmail.charAt(i) != '@'){
+            // System.out.println(inputEmail.charAt(i));
+            emailKey += inputEmail.charAt(i);
+            i++;
+        }
+        return emailKey;
     }
-    
+
     public void addTimelinePost(String v, String c) {
         timeline.addPost(v, c);
     }
@@ -92,12 +95,8 @@ public class Person {
     }
 
     public void addFriend(String email) {
-        int i = 0;
-        String emailKey = "";
-        while(email.charAt(i) != '@'){
-            emailKey += email.charAt(i);
-            i++;
-        }
+        String emailKey = returnEmailKey(email);
+        // System.out.println("addKey"+" "+emailKey);
         friends.addFriend(emailKey);
     }
 
@@ -105,8 +104,10 @@ public class Person {
         friends.find(key, friends.root());
     }
 
-    public void removeFriend(String key) {
-        friends.remove(key);
+    public void removeFriend(String email) {
+        String emailKey = returnEmailKey(email);
+        // System.out.println("key"+" "+emailKey);
+        friends.remove(emailKey);
     }
 
     public void showFriends(){
@@ -114,7 +115,7 @@ public class Person {
     }
 
     public void insertEvent(Calendar date, String event) {
-        events.insertEvent(date, event);
+        events.addEvent(date, event);
     }
 
     public void displayEvents() {
