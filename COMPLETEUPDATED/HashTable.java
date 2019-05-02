@@ -31,6 +31,9 @@ public class HashTable{
 		}
 		return hashVal;
 	}
+	public int getSize(){
+		return N;
+	}
 
 	public Person findPerson(String email, String password){ //login using email and password, do hornerHash method, if account found then crosscheck passwords, if correct pass, grant access
 		int i = 0;
