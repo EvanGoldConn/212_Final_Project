@@ -33,6 +33,9 @@ public class Person {
     public String getLastName() {
         return lastName;
     }
+    
+    public String getPassword(){
+        return pass;
 
     // public String getEmail() {
     //     return email.getEmail();
