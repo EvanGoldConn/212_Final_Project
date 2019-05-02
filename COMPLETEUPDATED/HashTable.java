@@ -50,6 +50,14 @@ public class HashTable{
 
 
 	}
+	//for admin login
+	public void showAccounts(){
+		System.out.println("Accounts:");
+		for(int i = 0; i < table.length; i++){
+			if(table[i] != null)
+				System.out.println("- Account"+i+": "+table[i].getEmail());
+		}
+	}
 
 	public void addPerson(Person person){
 		String key = person.getEmailKey();
@@ -62,10 +70,6 @@ public class HashTable{
 		String key = person.getEmailKey();
 		int hashKey = hornerHash(key);
 		table[hashKey] = null;
-	}
-	
-	public Person[] getHash() {
-		return table;
 	}
 
 }
