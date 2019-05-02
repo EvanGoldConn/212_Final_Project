@@ -202,12 +202,12 @@ class ConnBookMain{
 				int userChoice;
 				Scanner userScan = new Scanner(System.in); //user input for date
 
-				System.out.print("   |Please enter an option (1/2/3/4/5/6): ");
+				System.out.print("   |Please enter an option (1/2/3/4/5/6): "); //how to catch inputmismatchexceptions
 				userChoice = scan.nextInt();
 				boolean incorrectChoice;
 				if(userChoice == 1 || userChoice == 2 || userChoice == 3 || userChoice == 4 || userChoice == 5 || userChoice == 6){
 						incorrectOption = true;
-					}
+				}
 				else{
 					incorrectOption = false;
 				}
@@ -235,7 +235,8 @@ class ConnBookMain{
 					postDetails = timelineScan.next();
 					// System.out.println(currentUser.getFirstName());
 					System.out.println(postDetails);
-					// currentUser.addTimelinePost(postDetails, "justin"); //null pointer exception : WE CAN"T ACCESS PERSON METHODS?
+					currentUser.getFirstName();
+					currentUser.addTimelinePost(postDetails, "justin"); //null pointer exception : WE CAN"T ACCESS PERSON METHODS?
 					System.out.println("\n \n \n");
 					currentUser.displayTimeline(5);
 
@@ -288,18 +289,12 @@ class ConnBookMain{
 				System.out.println(" \t \t |   Program!   |");
 				System.out.println(" \t \t |--------------|");
 				System.out.println("\n \n \n");
-			}	
-			
-
-
-
-
-
-
-
-
-			
+			}
+			else{
+				System.out.println("else");
+			}		
 		}
 	}
-
 }
+		
+	
