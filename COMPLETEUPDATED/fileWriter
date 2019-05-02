@@ -1,16 +1,17 @@
-for(int i = 0;i < personTable.length;i++) {
+public void fileWriter(){
+		for(int i = 0;i < personTable.length;i++) {
 			if(personTable[i] != null) {
 				Person p = personTable[i];
 				String data = p.getFullName() + "\n" + p.getEmail() + "\n" + p.getPassword() + p.getYear() + "\n";
-				ENode cur = p.events.getHead();
-				for(int i = 0;i < p.events.getSize();i++) {
-					data += cur.getDate() + " " + cur.getEvent() + ",";  //need gettimeinmillis?????
-					cur = cur.getNext();
+				ENode curE = p.events.getHead();
+				for(int j = 0;j < p.events.getSize();i++) {
+					data += curE.getDate() + " " + curE.getEvent() + ",";  //need gettimeinmillis?????
+					curE = curE.getNext();
 				}
 				data += "\n";
-				TNode cur = p.getTimeline().getHead();
-				for(int j = 0;j < p.getTimeline().getSize();i++) {
-					data += cur.getPost() + ",";
+				TNode curT = p.getTimeline().getHead();
+				for(int k = 0;k < p.getTimeline().getSize();i++) {
+					data += curT.getPost() + ",";
 				}
 				data += "\n" + p.getFriends.postOrderTrav();
 				try {
