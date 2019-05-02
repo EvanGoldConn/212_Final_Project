@@ -61,6 +61,10 @@ public class HashTable{
 				System.out.println("- Account"+i+": "+table[i].getEmail());
 		}
 	}
+	
+	public Person[] hashTable(){
+		return table;
+	}
 
 	public void addPerson(Person person){
 		String key = person.getEmailKey();
