@@ -89,6 +89,10 @@ public class Person {
     public void displayTimeline(int n) {
         timeline.displayTimeline(n);
     }
+    
+    public Timeline getTimeline() {
+         return timeline;
+     }
 
     public void loginTimeline() {
         timeline.loginTimeline();
