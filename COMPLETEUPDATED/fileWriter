@@ -1,7 +1,8 @@
 public void fileWriter(){
-		for(int i = 0;i < personTable.length;i++) {
-			if(personTable[i] != null) {
-				Person p = personTable[i];
+		Person[] personArray = personTable.hashTable();
+		for(int i = 0;i < personTable.getSize();i++) {
+			if(personArray[i] != null) {
+				Person p = personArray[i];
 				String data = p.getFullName() + "\n" + p.getEmail() + "\n" + p.getPassword() + p.getYear() + "\n";
 				ENode curE = p.events.getHead();
 				for(int j = 0;j < p.events.getSize();i++) {
