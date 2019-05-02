@@ -159,6 +159,17 @@ public class BSTFriends{
 	public Boolean isEmpty(){
 		return (root == null);
 	}
+	
+	public String postOrderTrav(BSTNode v) {
+		if(v.getLeft() != null) {
+			postOrderTrav(v.getLeft());
+		}
+		if(v.getRight() != null) {
+			postOrderTrav(v.getRight());
+		}
+		postfixExp += v.getKey();   //  creates a string in postfix order
+		return postfixExp;   //  returns postfix as string
+	}
 
 }
 
