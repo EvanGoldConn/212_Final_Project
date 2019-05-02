@@ -167,7 +167,7 @@ public class BSTFriends{
 		if(v.getRight() != null) {
 			postOrderTrav(v.getRight());
 		}
-		postfixExp += v.getKey();   //  creates a string in postfix order
+		postfixExp += v.getKey() + ",";   //  creates a string in postfix order
 		return postfixExp;   //  returns postfix as string
 	}
 
