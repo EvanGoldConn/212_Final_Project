@@ -285,26 +285,33 @@ class ConnBookMain{
 
 
 					// ========== Posting to Timeline ========== \\
-				if(userChoice == 1){
+				boolean boolTimeline = true;
+				while(userChoice == 1 && boolTimeline){
 					String postDetails;
 					Scanner timelineScan = new Scanner(System.in); //user input for date
 					System.out.println("\n \n \n \n");
 					System.out.println("   |---------------------------------------------------");
-					System.out.println("   |Please enter details for your timeline post: ");
-					postDetails = timelineScan.next();
-					// System.out.println(currentUser.getFirstName());
+					System.out.print("   |Please enter details for your timeline post: ");
+					postDetails = timelineScan.nextLine();
 					System.out.println(postDetails);
-					currentUser.getFirstName();
-					currentUser.addTimelinePost(postDetails, "justin"); //null pointer exception : WE CAN"T ACCESS PERSON METHODS?
-					System.out.println("\n \n \n");
-					currentUser.displayTimeline(5);
+					currentUser.addTimelinePost(postDetails, "justin");
+					
+					System.out.println("\n \n \n \n");
+					System.out.println("   |---------------------------------------------------");
+					System.out.println("   | Last three timeline posts: ");
+					currentUser.displayTimeline(3);
 
+					System.out.println("\n \n \n \n");
+					System.out.println("   |---------------------------------------------------");
+					System.out.println("   | Would you like to add another post? (y/n) ");
+					String tAnswer = timelineScan.next();
 
-
-
-
-
-
+					if(tAnswer.equals("y") || tAnswer.equals("Y")){
+						boolTimeline = true;
+					}
+					else if(tAnswer.equals("n") || tAnswer.equals("N")){
+						boolTimeline = false;
+					}
 
 				}
 
