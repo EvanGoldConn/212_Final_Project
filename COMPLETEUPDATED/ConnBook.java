@@ -239,19 +239,37 @@ class ConnBookMain{
 					currentUser.addTimelinePost(postDetails, "justin"); //null pointer exception : WE CAN"T ACCESS PERSON METHODS?
 					System.out.println("\n \n \n");
 					currentUser.displayTimeline(5);
-
-
-
-
-
-
-
-
 				}
-
-
-
-
+				
+				if(userChoice == 3){
+					currentUser.showFriends();
+				}
+					
+				if(userChoice == 4){
+					Scanner addRemove = new Scanner(System.in); //user input for Add or Remove
+					System.out.println("   |---------------------------------------------------");
+					System.out.println("   |Would you like to add or remove a friend");
+					String choice = addRemove.next();
+					if (choice.equals("add") || choice.equals("Add")) {
+						Scanner nameAdd = new Scanner(System.in);
+						System.out.println("Add Friend");
+						System.out.print("Friends Email: ");
+						String friendEmail = nameAdd.next();
+						currentUser.addFriend(friendEmail);
+					}
+					else if (choice.equals("remove") || choice.equals("Remove")) {
+						Scanner nameRemove = new Scanner(System.in);
+						System.out.println("Remove Friend");
+						System.out.print("Friends Email: ");
+						String friendEmail = nameRemove.next();
+						currentUser.removeFriend(friendEmail);
+					}
+					else {
+						System.out.println("Error: invalid input");
+					}
+					
+				}
+				
 			}
 
 
