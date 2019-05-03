@@ -31,7 +31,12 @@ public class ConnBook{
 		Person person = personTable.findPerson(email, password);
 		return person;
 	}
-
+	
+	public void setHash(String file) {
+		FileIO read = new FileIO();
+		personTable = read.getHash(file);
+	}
+	
 	public void showAccounts(){
 		personTable.showAccounts();
 	}
@@ -185,6 +190,9 @@ class ConnBookMain{
 
 		ConnBook mainBook = new ConnBook();
 		mainBook.startProgram();
+		if(mainBook.program()) {
+			mainBook.setHash(THIS SHOULD BE A FILEPATH);
+		}
 		boolean quitProgram = false;
 		Person currentUser;
 		while(quitProgram == false){
