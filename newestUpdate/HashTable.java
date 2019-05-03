@@ -46,7 +46,7 @@ public class HashTable{
         }
 		int hashKey = hornerHash(emailKey);
 		Person foundPerson = table[hashKey];
-		if(foundPerson.getPassword() == password){
+		if(foundPerson.getPassword().equals(password)){
 			return foundPerson;
 		}
 		else{
