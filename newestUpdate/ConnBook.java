@@ -191,7 +191,7 @@ class ConnBookMain{
 		ConnBook mainBook = new ConnBook();
 		mainBook.startProgram();
 		if(mainBook.program()) {
-			mainBook.setHash(THIS SHOULD BE A FILEPATH);
+			mainBook.setHash("userdata.txt");
 		}
 		boolean quitProgram = false;
 		Person currentUser;
