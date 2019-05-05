@@ -240,92 +240,221 @@ class ConnBookMain{
 
 			// ======================== Login to Existing Account =============================== \\
 			
-			if(option.equals("a")){
+			if(option.equals("a") || option.equals("A")){
 				mainBook.showAccounts();
+				
 				System.out.println("\n \n \n \n");
 				System.out.println("   |---------------------------------------------------");
+
+				// ======== Getting user emial and password =======
 				String email, password;
 				Scanner login = new Scanner(System.in); // user input for email and password
 				System.out.print("   |Please enter your email: ");
 				email = login.next();
 				System.out.print("   |Please enter your password: ");
 				password = login.next();
-				// System.out.println(email+" "+password);
-				currentUser = mainBook.login(email, password);
-				// System.out.println(currentUser.getLastName());
 
 
-				// ========== User Options ========== \\
-				System.out.println("\n \n \n \n");
-				System.out.println(" |--------------------------------------------------------------------------------------------|");
-				System.out.println(" | Option 1     | Option 2      | Option 3       | Option 4     | Option 5      | Option 6    |");
-				System.out.println(" |--------------------------------------------------------------------------------------------|");
-				System.out.println(" | Post to User | Add new event | Display current| Add / Remove | Log out of    |             |");
-				System.out.println(" | Timeline     | to attend to  | Friends        | a Friend     | Account       |             |");
-				System.out.println(" |--------------------------------------------------------------------------------------------|\n\n");
-				System.out.println("\n \n \n \n");
-				System.out.println("   |---------------------------------------------------");
+				// ======= Logging user into account =======
+				Person currentUser = mainBook.login(email, password);
+				boolean homeScreen = false;
+				while(currentUser == null && !homeScreen){
+					System.out.println("\n \n \n \n");
+					System.out.println("   |---------------------------------------------------|");
+					System.out.println("   | Error: Account Not Found - Please Enter Different |");
+					System.out.println("   |                            Email and Password     |");
+					System.out.println("   |---------------------------------------------------|");
 
-				int userChoice;
-				Scanner userScan = new Scanner(System.in); //user input for date
+					// ========== Rescanning for working email and password =========
+					Scanner reLogin = new Scanner(System.in); // user input for email and password
+					System.out.print("   |Please enter your email: ");
+					email = reLogin.next();
+					System.out.print("   |Please enter your password: ");
+					password = reLogin.next();
+					currentUser = mainBook.login(email, password);
+					if(currentUser == null){
+						System.out.print("   |Return back to home screen? (y/n))");
+						String loginAnswer = reLogin.next();
+						loginAnswer = loginAnswer.toLowerCase();
+						if(loginAnswer.equals("y")){
+							homeScreen = true;
 
-				System.out.println("   |Please enter an option (1/2/3/4/5/6): "); //how to catch inputmismatchexceptions
-				userChoice = userScan.nextInt();
-				boolean incorrectChoice;
-				if(userChoice == 1 || userChoice == 2 || userChoice == 3 || userChoice == 4 || userChoice == 5 || userChoice == 6){
-						incorrectOption = true;
+						}
+					}
+
 				}
-				else{
-					incorrectOption = false;
-				}
-				while(!incorrectOption){	
-					Scanner rescanChoice = new Scanner(System.in); //user input for date
-					System.out.println("   |Invalid Option \n |\t Please enter an option (1/2/3/4/5/6): ");
-					userChoice = rescanChoice.nextInt();
+
+				// ====================================== If User SUCCESSFULLY Logged in ======================================== \\
+				if(currentUser != null){
+
+					System.out.println(currentUser);
+					System.out.println(currentUser.getFirstName());
+					// System.out.println(currentUser.getLastName());
+
+
+					// ========== User Options ========== \\
+					System.out.println("\n \n \n \n");
+					System.out.println("\t   |--------------|--------------------------|");
+					System.out.println("\t   | Welcome Back :"+currentUser.getFullName());
+
+
+					System.out.println(" |--------------------------------------------------------------------------------------------|");
+					System.out.println(" | Option 1     | Option 2      | Option 3       | Option 4     | Option 5      | Option 6    |");
+					System.out.println(" |--------------------------------------------------------------------------------------------|");
+					System.out.println(" | Post to User | Add new event | Display current| Add / Remove | Log out of    |             |");
+					System.out.println(" | Timeline     | to attend to  | Friends        | a Friend     | Account       |             |");
+					System.out.println(" |--------------------------------------------------------------------------------------------|\n\n");
+					System.out.println("\n \n \n \n");
+					System.out.println("   |---------------------------------------------------");
+
+					int userChoice;
+					Scanner userScan = new Scanner(System.in); //user input for date
+
+					System.out.print("   |Please enter an option (1/2/3/4/5/6): "); //how to catch inputmismatchexceptions
+					userChoice = userScan.nextInt();
+					boolean incorrectChoice;
 					if(userChoice == 1 || userChoice == 2 || userChoice == 3 || userChoice == 4 || userChoice == 5 || userChoice == 6){
-						incorrectOption = true;
+							incorrectOption = true;
 					}
+					else{
+						incorrectOption = false;
+					}
+					while(!incorrectOption){	
+						Scanner rescanChoice = new Scanner(System.in); //user input for date
+						System.out.print("   |Invalid Option \n |\t Please enter an option (1/2/3/4/5/6): ");
+						userChoice = rescanChoice.nextInt();
+						if(userChoice == 1 || userChoice == 2 || userChoice == 3 || userChoice == 4 || userChoice == 5 || userChoice == 6){
+							incorrectOption = true;
+						}
+					}
+
+
+
+
+					// ======================== Option 1: Posting to Timeline ========================= \\
+					boolean boolTimeline = true;
+					while(userChoice == 1 && boolTimeline){
+						String postDetails;
+						Scanner timelineScan = new Scanner(System.in); //user input for date
+						System.out.println("\n \n \n \n");
+						System.out.println("   |---------------------------------------------------");
+						System.out.print("   |Please enter details for your timeline post: ");
+						postDetails = timelineScan.nextLine();
+						System.out.println(postDetails);
+						currentUser.addTimelinePost(postDetails, "justin");
+						
+						System.out.println("\n \n \n \n");
+						System.out.println("   |---------------------------------------------------");
+						System.out.println("   | Last three timeline posts: ");
+						currentUser.displayTimeline(3);
+
+						System.out.println("\n \n \n \n");
+						System.out.println("   |---------------------------------------------------");
+						System.out.println("   | Would you like to add another post? (y/n) ");
+						String tAnswer = timelineScan.next();
+
+						if(tAnswer.equals("y") || tAnswer.equals("Y")){
+							boolTimeline = true;
+						}
+						else if(tAnswer.equals("n") || tAnswer.equals("N")){
+							boolTimeline = false;
+						}
+
+					}
+
+					// ========================== Option 2: Adding Event to Attend to ============================= \\
+					boolean boolEvent = true;
+					while(userChoice == 2 && boolEvent){
+
+
+
+
+
+						
+					}
+
+
+
+					// ====================== Option 3: Displaying Numbered List of Friends ================== \\
+					boolean boolDisplayFriend = true;
+					while(userChoice == 3 && boolDisplayFriend){
+
+
+
+
+
+
+
+
+
+					}
+
+
+					// ======================= Option 4: Add / Remove Friends =========================== \\
+					boolean boolFriend = true;
+					while(userChoice == 4 && boolFriend){
+
+
+						// ======== Add or Remove? ========== \\
+						String opt4Response;
+						Scanner response = new Scanner(System.in);
+						System.out.println("\n \n \n");
+						System.out.print("   |--------------------------------------------------|");
+						System.out.println("   | Would you like to Add or Remove a friend? (a/r):  ");
+						opt4Response = response.next();
+						opt4Response = opt4Response.toLowerCase();
+
+
+
+
+
+
+						// ====== Getting user Input ====== \\
+						String friendEmail;
+						Scanner friendScan = new Scanner(System.in); //user input for date
+						System.out.println("\n \n \n \n");
+						System.out.print("   |---------------------------------------------------");
+						System.out.println("   |Please Enter Your Friends Email:");
+						friendEmail = friendScan.next();
+
+						// ======= Adding Friend... ======= \\
+						if(opt4Response.equals("a")){
+							currentUser.addFriend(friendEmail);
+						}
+
+						else if(opt4Response.equals("r")){
+							currentUser.removeFriend(friendEmail);
+						}
+
+
+						
+						
+
+						System.out.println("\n \n \n \n");
+						System.out.println("   |-------------------------------------------------------");
+						System.out.println("   | Would you like to Add or Remove another friend? (y/n) ");
+						String fAnswer = friendScan.next();
+
+						if(fAnswer.equals("y")){
+							boolFriend = true;
+						}
+						else if(fAnswer.equals("n")){
+							boolFriend = false;
+						}
+
+
+
+
+
+
+
+					}
+
+
+
+
+
 				}
-
-
-
-
-
-
-					// ========== Posting to Timeline ========== \\
-				boolean boolTimeline = true;
-				while(userChoice == 1 && boolTimeline){
-					String postDetails;
-					Scanner timelineScan = new Scanner(System.in); //user input for date
-					System.out.println("\n \n \n \n");
-					System.out.println("   |---------------------------------------------------");
-					System.out.print("   |Please enter details for your timeline post: ");
-					postDetails = timelineScan.nextLine();
-					System.out.println(postDetails);
-					currentUser.addTimelinePost(postDetails, "justin");
-					
-					System.out.println("\n \n \n \n");
-					System.out.println("   |---------------------------------------------------");
-					System.out.println("   | Last three timeline posts: ");
-					currentUser.displayTimeline(3);
-
-					System.out.println("\n \n \n \n");
-					System.out.println("   |---------------------------------------------------");
-					System.out.println("   | Would you like to add another post? (y/n) ");
-					String tAnswer = timelineScan.next();
-
-					if(tAnswer.equals("y") || tAnswer.equals("Y")){
-						boolTimeline = true;
-					}
-					else if(tAnswer.equals("n") || tAnswer.equals("N")){
-						boolTimeline = false;
-					}
-
-				}
-
-
-
-
 			}
 
 
