@@ -303,7 +303,7 @@ class ConnBookMain{
 
 						System.out.println("\n \n \n \n");
 						System.out.println("   |---------------------------------------------------");
-						System.out.println("   | Would you like to add another post? (y/n) ");
+						System.out.print("   | Would you like to add another post? (y/n) ");
 						String tAnswer = timelineScan.next();
 
 						if(tAnswer.equals("y") || tAnswer.equals("Y")){
@@ -385,7 +385,7 @@ class ConnBookMain{
 							while(currentAnswer){
 								System.out.println("\n \n \n \n");
 								System.out.println("   |------------------------------------------|");
-								System.out.println("   | Would you like to add another post? (y/n)| ");
+								System.out.print("   | Would you like to add another post? (y/n)| ");
 								String eAnswer = eventScan.next();
 								eAnswer = eAnswer.toLowerCase();
 								if(eAnswer.equals("y")){
@@ -478,14 +478,14 @@ class ConnBookMain{
 
 
 						System.out.println("\n \n");
-						System.out.print("|-----------------------");
-						System.out.print("| Current Friends List: ");
+						System.out.println("|-----------------------|");
+						System.out.println("| Current Friends List: ");
 						currentUser.showFriends();
 
 
 						System.out.println("\n \n \n \n");
-						System.out.println("   |-------------------------------------------------------");
-						System.out.println("   | Would you like to Add or Remove another friend? (y/n) ");
+						System.out.println("   |-------------------------------------------------------|");
+						System.out.print("   | Would you like to Add or Remove another friend? (y/n) ");
 						String fAnswer = friendScan.next();
 
 						if(fAnswer.equals("y")){
