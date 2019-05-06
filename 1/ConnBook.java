@@ -384,7 +384,7 @@ class ConnBookMain{
 							boolean currentAnswer = true;
 							while(currentAnswer){
 								System.out.println("\n \n \n \n");
-								System.out.println("   |------------------------------------------|");
+								System.out.println("   |------------------------------------------");
 								System.out.print("   | Would you like to add another event? (y/n)| ");
 								String eAnswer = eventScan.next();
 								eAnswer = eAnswer.toLowerCase();
