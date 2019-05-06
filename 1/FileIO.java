@@ -3,7 +3,45 @@ import java.util.Calendar;
 import java.util.Scanner;
 
 public class FileIO{
-    
+	
+	public PriorityQueue getEvents(String file) {
+		try {
+			Scanner scanEvents = new Scanner(new FileInputStream(file));
+			PriorityQueue events = new PriorityQueue();
+			String e;
+			while(scanEvents.hasNext()) {
+				e = scanEvents.nextLine();
+				e = e.substring(1, e.length());
+				Calendar date = Calendar.getInstance();
+                Scanner eScanner = new Scanner(e); //yet another scanner just for this particular event
+                int month = eScanner.nextInt();
+                //System.out.println("Month: " + month);
+                int day = eScanner.nextInt();
+                //System.out.println("Day: " + day);
+                int eYear = eScanner.nextInt();
+                //System.out.println("Year: " + eYear);
+				int hour = eScanner.nextInt();
+				//System.out.println("Hour: " + hour);
+				int minutes = eScanner.nextInt();
+				//System.out.println("Minutes: " + minutes);
+				date.set(eYear, month-1, day, hour, minutes);
+				String desc = ""; //to hold the description of the event
+				while (eScanner.hasNext()){ //while there are words left...
+					desc = desc + " " + eScanner.next(); //reads the description one word at a time
+				}
+			events.insertEvent(date, desc);
+			}
+			return events;
+		}
+		
+		catch(FileNotFoundException ex) {
+			System.out.println("File not Found");
+			System.exit(0);
+		}
+
+		return null;
+	}
+
     public HashTable getHash(String file){
 		//this try-catch statement is needed around this file input code
 		//because the FileInputStream may throw a FileNotFoundException
@@ -80,7 +118,7 @@ public class FileIO{
 					while (eScanner.hasNext()){ //while there are words left...
 						desc = desc + " " + eScanner.next(); //reads the description one word at a time
                     }
-                    p.insertEvent(date, desc);
+                    p.insertPersonalEvent(date, desc);
                     //System.out.println("Description: " + desc);
                     
 				}				
