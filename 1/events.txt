@@ -1,0 +1,3 @@
+“5 15 2019 12 00 last day of school"
+"6 10 2019 6 00 start work"
+"7 04 2019 12 00 fourth of july" 
