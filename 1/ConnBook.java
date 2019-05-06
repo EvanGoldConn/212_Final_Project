@@ -206,39 +206,44 @@ class ConnBookMain{
 
 				// ====================================== If User SUCCESSFULLY Logged in ======================================== \\
 				boolean loggedIn = false;
+				boolean logInScreen = true;
 				if(currentUser != null){
 					loggedIn = true;
 				}
 				while(currentUser != null && loggedIn){
 
 					
-					// ========================= Home Screen Display ========================== \\
+					while(logInScreen){
+						// ========================= Home Screen Display ========================== \\
 
-					System.out.println("\n \n \n \n");
-					System.out.println("|-------------|--------------------------|");
-					System.out.println("| Welcome Back: "+currentUser.getFullName());
-
-
-					System.out.println("\n \n \n ");
-					System.out.println("|----------------------------");
-					System.out.println("| Upcoming campus events:");
-					PriorityQueue events = mainBook.returnEvents();
-					events.displayEvents();
-
-					
-					System.out.println("\n \n \n ");
-					System.out.println("|----------------------------");
-					System.out.println("| Most recent timeline posts:");
-
-					currentUser.loginTimeline();
-					System.out.println("\n \n \n ");
-					System.out.println("|----------------------");
-					System.out.println("| Your upcoming events:");
+						System.out.println("\n \n \n \n");
+						System.out.println("|-------------|--------------------------|");
+						System.out.println("| Welcome Back: "+currentUser.getFullName());
 
 
-					currentUser.displayEvents();
+						System.out.println("\n \n \n ");
+						System.out.println("|----------------------------");
+						System.out.println("| Upcoming campus events:");
+						PriorityQueue events = mainBook.returnEvents();
+						events.displayEvents();
 
-					System.out.println("\n \n \n \n ");
+						
+						System.out.println("\n \n \n ");
+						System.out.println("|----------------------------");
+						System.out.println("| Most recent timeline posts:");
+
+						currentUser.loginTimeline();
+						System.out.println("\n \n \n ");
+						System.out.println("|----------------------");
+						System.out.println("| Your upcoming events:");
+
+
+						currentUser.displayEvents();
+
+						System.out.println("\n \n \n \n ");
+					}
+
+					logInScreen = false;
 
 
 
@@ -494,7 +499,7 @@ class ConnBookMain{
 
 					if(userChoice.equals("5")){
 						loggedIn = true; //boolean controlling while loop to log in 
-
+						logInScreen = true;
 
 
 					}
