@@ -43,9 +43,10 @@ public class PriorityQueue{
 		}
 	}
 
-	public void displayEvents(){
+	public void displayPQEvents(){
 		for(int i = 1; i <= n; i++){
-			System.out.println(events[i].getEvent()+" "+events[i].getDate().getTime());
+			System.out.println(i+"."+events[i].getEvent());
+			System.out.println("\t"+events[i].getDate().getTime());
 		}
 	}
 
@@ -116,10 +117,10 @@ class priorityQueueTest{
 		test.insertEvent(userCal, event);
 		// test.insertEvent();
 		// test.insertEvent();
-		test.displayEvents();
+		test.displayPQEvents();
 		test.extractMin();
 		System.out.println("\n removing.... \n");
-		test.displayEvents();
+		test.displayPQEvents();
 
 
 
