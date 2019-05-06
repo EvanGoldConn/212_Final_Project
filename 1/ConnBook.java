@@ -37,15 +37,16 @@ public class ConnBook{
 		return person;
 	}
 
+	// ============== Used for File Reading =======
 	public void setHash(String file){
 		FileIO read = new FileIO();
 		personTable = read.getHash(file);
 	}
-	
 	public void setEvents(String file){
-		FileIO read = new FileIO();
-		events = read.getEvents(file)
-	}
+ 		FileIO read = new FileIO();
+ 		events = read.getEvents(file);
+ 	}
+ 	// =============================================
 	
 	public void showAccounts(){
 		personTable.showAccounts();
@@ -230,8 +231,7 @@ class ConnBookMain{
 						System.out.println("\n \n \n ");
 						System.out.println("|----------------------------");
 						System.out.println("| Upcoming campus events:");
-						PriorityQueue events = mainBook.returnEvents();
-						events.displayEvents();
+						mainBook.returnEvents().displayPQEvents();
 
 						
 						System.out.println("\n \n \n ");
