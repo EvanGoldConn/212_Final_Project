@@ -444,14 +444,19 @@ class ConnBookMain{
 
 
 						// ======== Add or Remove? ========== \\
-						String opt4Response;
-						Scanner response = new Scanner(System.in);
-						System.out.println("\n \n \n");
-						System.out.print("   |--------------------------------------------------|");
-						System.out.println("   | Would you like to Add or Remove a friend? (a/r):  ");
-						opt4Response = response.next();
-						opt4Response = opt4Response.toLowerCase();
-
+						boolean arFriend = true;
+						while(arFriend){
+							String opt4Response;
+							Scanner response = new Scanner(System.in);
+							System.out.println("\n \n \n");
+							System.out.println("   |--------------------------------------------------|");
+							System.out.print("   | Would you like to Add or Remove a friend? (a/r):");
+							opt4Response = response.next();
+							opt4Response = opt4Response.toLowerCase();
+							if(opt4Response.equals("a") || opt4Response.equals("r")){
+								arFriend = false;
+							}
+						}
 
 						// ====== Getting user Input ====== \\
 						String friendEmail;
