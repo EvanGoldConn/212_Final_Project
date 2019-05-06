@@ -41,7 +41,12 @@ public class ConnBook{
 		FileIO read = new FileIO();
 		personTable = read.getHash(file);
 	}
-
+	
+	public void setEvents(String file){
+		FileIO read = new FileIO();
+		events = read.getEvents(file)
+	}
+	
 	public void showAccounts(){
 		personTable.showAccounts();
 	}
@@ -111,6 +116,7 @@ class ConnBookMain{
 
 		if(mainBook.program()) {
 			mainBook.setHash("userdata.txt");
+			mainBook.setEvents("events.txt");
 		}
 
 		boolean quitProgram = false;
