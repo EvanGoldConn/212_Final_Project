@@ -352,7 +352,7 @@ class ConnBookMain{
 						// ================ Creating a New Event and Uploading it ============= \\
 						while(boolUpload){
 
-							System.out.println("|--------------------------------------------------|");
+							System.out.println("|--------------------------------------------------");
 							System.out.println("|Please input the month, day, year, hour, and minute");
 							// ========= User input calendar object ============ \\
 
@@ -385,7 +385,7 @@ class ConnBookMain{
 							while(currentAnswer){
 								System.out.println("\n \n \n \n");
 								System.out.println("   |------------------------------------------|");
-								System.out.print("   | Would you like to add another post? (y/n)| ");
+								System.out.print("   | Would you like to add another event? (y/n)| ");
 								String eAnswer = eventScan.next();
 								eAnswer = eAnswer.toLowerCase();
 								if(eAnswer.equals("y")){
@@ -421,8 +421,8 @@ class ConnBookMain{
 					boolean boolOption3 = true;
 					while(userChoice.equals("3") && boolOption3){
 						System.out.println("\n \n \n \n");
-						System.out.println("|------------------------------------------|");
-						System.out.println("|Displaying Friends and Timelines...");
+						System.out.println("|------------------------------------------");
+						System.out.println("| Displaying Friends and Timelines...");
 						currentUser.showFriends();
 						boolOption3 = false;
 
@@ -449,7 +449,7 @@ class ConnBookMain{
 							String opt4Response;
 							Scanner response = new Scanner(System.in);
 							System.out.println("\n \n \n");
-							System.out.println("   |--------------------------------------------------|");
+							System.out.println("   |--------------------------------------------------");
 							System.out.print("   | Would you like to Add or Remove a friend? (a/r):");
 							opt4Response = response.next();
 							opt4Response = opt4Response.toLowerCase();
@@ -478,13 +478,13 @@ class ConnBookMain{
 
 
 						System.out.println("\n \n");
-						System.out.println("|-----------------------|");
+						System.out.println("|-----------------------");
 						System.out.println("| Current Friends List: ");
 						currentUser.showFriends();
 
 
 						System.out.println("\n \n \n \n");
-						System.out.println("   |-------------------------------------------------------|");
+						System.out.println("   |-------------------------------------------------------");
 						System.out.print("   | Would you like to Add or Remove another friend? (y/n) ");
 						String fAnswer = friendScan.next();
 
