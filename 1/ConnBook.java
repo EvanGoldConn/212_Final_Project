@@ -218,7 +218,7 @@ class ConnBookMain{
 
 						System.out.println("\n \n \n \n");
 						System.out.println("|-------------|--------------------------|");
-						System.out.println("| Welcome Back: "+currentUser.getFullName());
+						System.out.println("| Welcome Back "+currentUser.getFullName()+"!");
 
 
 						System.out.println("\n \n \n ");
