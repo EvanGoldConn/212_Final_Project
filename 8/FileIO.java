@@ -164,6 +164,7 @@ public class FileIO{
 				String friend;
 				//System.out.print("Friends are: ");
 				while (friendScanner.hasNext()) {
+					if(friend.compareTo("a") > 0){
 					friend = friendScanner.next();
 					p.addFriend(friend);
 					//System.out.print(friend + ",");
@@ -171,6 +172,7 @@ public class FileIO{
 					//i don't do anything with this array, but it is here just to demonstrate
 					//(you may or may not be using an array to store the list of friends.)
 					i++;
+					}
 				}
 				
 				hash.addPerson(p);
