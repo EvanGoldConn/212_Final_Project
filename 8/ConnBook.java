@@ -91,7 +91,7 @@ public class ConnBook{
 	                data += "\n" + p.getPersonFriends().returnString() + "\n";
             	}
             	else if(p.getPersonFriends().size() <= 0){
-            		data += "\n";
+            		data = data + "\n \n";
             	}
                 
 
