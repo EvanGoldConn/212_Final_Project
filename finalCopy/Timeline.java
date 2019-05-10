@@ -1,21 +1,26 @@
 import java.util.Scanner;
+
+/*creates and displays user's timeline*/
+
 public class Timeline{
+	/*fields for timeline (singly linked list)*/
 	private TNode head;
 	private TNode tail;
 	private int size;
 
+	/*constructor method*/
 	public Timeline(){
 		head = null;
 		tail = null;
 		size = 0;
 	}
 
-
-
+	/*returns the head of the linked list*/
 	public TNode getHead() {
 		return head;
 	}
 
+	/*returns the size of the linked list*/
 	public int getSize() {
 		return size;
 	}
@@ -28,9 +33,6 @@ public class Timeline{
 	 */
 	public void addPost(String v, String c){
 		TNode u = new TNode(v, c, null);
-		
-
-
 		if(isEmpty()){
 			head = u;
 		}
@@ -39,7 +41,6 @@ public class Timeline{
 			head = u;
 			head.setNext(temp);
 		}
-
 		size++;
 	}	
 
@@ -59,17 +60,15 @@ public class Timeline{
 	 *	number of posts the user requests to view
 	 */ 
 	public void displayTimeline(int n){
-		//add something in main method that loops 'while n is !> size'
-		//if condition breaks the user inputted too much stuff 
-
 		TNode cur = head;
 		if (isEmpty()){
 			System.out.println("User timeline is empty");
 		}
-		else{
+		else{  //if timeline is populated
 			int i = 0;
-			while(i < n){
+			while(i < n){ //loops through all timeline posts
 				if (cur != null){
+					//prints out the post and the creator
 					System.out.println(cur.getPost()+" "+"\n \tPosted By: "+cur.getCreator());
 					cur = cur.getNext(); //iterating through linked list
 				}
@@ -95,13 +94,14 @@ public class Timeline{
 					System.out.println(cur.getPost()+" "+"\n \tPosted By: "+cur.getCreator());
 					cur = cur.getNext();
 				}
-
 			}
 		}
-
 	}
 
-
+	/**
+	 * method friendTimeline, posts friend's most recent timeline post
+	 * @return none
+	 */
 	public void friendTimeline(){ 
 		TNode cur = head;
 		if (isEmpty()){
@@ -112,15 +112,19 @@ public class Timeline{
 		}
 	}
 
+	/**
+	 * method deletePost, deletes a Post from the timeline
+	 * @return none
+	 */
 	public void deletePost(){ 
 		TNode cur = head;
 		TNode lastNode = null;
 		if (isEmpty()){
 			System.out.println("No posts found. Timeline is empty.");
 		}
-		else{
-			for(int i = 0; i < size; i++){
-				if (cur!= null){
+		else{ //if the timeline is populated
+			for(int i = 0; i < size; i++){ //loops through all posts, asking user about each of them
+				if (cur!= null){ //asks user if they would like to delete a specific post
 					System.out.println(cur.getPost());
 					Scanner answer = new Scanner(System.in); //user input for main menu
 					System.out.println("Would you like to delete this post? \n Yes (y) | No, next post (n)");
@@ -140,19 +144,18 @@ public class Timeline{
 						cur = cur.getNext();
 
 					}
+					
 				}
+				
 			}
 
-
 		}
-
-
 
 	}
 
 }
 
-class timelineTest{
+class timelineTest{ //test class for the timeline
 	public static void main(String[] args){
 		Timeline test = new Timeline();
 		test.addPost("Can't wait to eat Ice Cream!", "Evan");
