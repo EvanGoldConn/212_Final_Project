@@ -18,7 +18,6 @@ public class Events{
 		return size == 0;
 	}
 
-	
 	public void addEvent(Calendar date, String event, int month1, int day1, int year1, int hour1, int minutes1){
 		ENode u = new ENode(date, event, null, month1, day1, year1, hour1, minutes1);
 		if(isEmpty()){
