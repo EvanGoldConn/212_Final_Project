@@ -54,3 +54,10 @@ pw
 "5 20 2019 16 20 Great celebration haha!","5 22 2019 8 30 qualify for the mass open baby!",
 "lets eat!","se la vie!","pound some brews!",
 egoldsmith@conncoll.edu,smewada@conncoll.edu,
+Neal Mahoney
+nmahoney@conncoll.edu
+NealsPassword
+2022
+"6 25 2019 7 00 Biggest Swim Meet of the Year.",
+"Great freshman year. See you all in a few months.",
+egoldsmi@conncoll.edu,dhunter@conncoll.edu,
