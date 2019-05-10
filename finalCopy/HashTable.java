@@ -129,17 +129,23 @@ public class HashTable{
 
 	}
 
-	public void deleteAccount(Person person){
-		String key = person.getEmailKey();
-		int hashKey = hornerHash(key);
-		if(!table[hashKey].equals(person.getEmail())) {
-			hashKey++;
-			person = table[hashKey];
-			while(!table[hashKey].equals(person.getEmail())) {
-				hashKey = (hashKey + 1)%con;
-			}
+	public void deleteAccount(String email){
+		int i = 0;
+        String emailKey = "";
+        while(email.charAt(i) != '@'){
+            emailKey += email.charAt(i);
+            i++;
+        }
+		int hashKey = hornerHash(emailKey);
+		System.out.println(table[hashKey]);
+
+
+		while(table[hashKey] == null){
+			hashKey = (hashKey + 1)%con;
 		}
-		table[hashKey] = null;
+		if(table[hashKey].getEmail().equals(email)){
+			table[hashKey] = null;
+		}
 	}
 
 }
