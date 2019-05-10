@@ -1,23 +1,41 @@
 import java.util.Scanner;
 import java.util.Calendar;
+/*creates events*/
 public class Events{
+	
+	/*fields*/
 	private ENode head;
 	private ENode tail;
 	private int size;
 
-
+	/*constructor method*/
 	public Events(){
 		head = null;
 		tail = null;
 		size = 0;
-		
-
+	
 	}
 	
+	/**
+	 * method isEmpty, checks if events is empty
+	 * @return size == 0
+	 */
 	public boolean isEmpty(){
 		return size == 0;
 	}
 
+	/**
+	 * method addEvent, adds an event to the linked list of events
+	 * @param date, event, month1, day1, year1, hour1, minutes1
+	 *  	Calender date in real time
+	 * 		String event that 
+	 *  			String v is post context
+	 * 	String c is post creator
+	 *  		String v is post context
+	 * 			String c is post creator
+	 *  	String v is post context
+	 * 		String c is post creator
+	 */
 	public void addEvent(Calendar date, String event, int month1, int day1, int year1, int hour1, int minutes1){
 		ENode u = new ENode(date, event, null, month1, day1, year1, hour1, minutes1);
 		if(isEmpty()){
