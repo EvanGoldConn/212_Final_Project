@@ -24,18 +24,22 @@ public class Events{
 		return size == 0;
 	}
 
-	/**
-	 * method addEvent, adds an event to the linked list of events
-	 * @param date, event, month1, day1, year1, hour1, minutes1
-	 *  	Calender date in real time
-	 * 		String event that 
-	 *  			String v is post context
-	 * 	String c is post creator
-	 *  		String v is post context
-	 * 			String c is post creator
-	 *  	String v is post context
-	 * 		String c is post creator
-	 */
+	/*adds a new event
+	@param date  
+		Calendar object with actual current date
+	@param event
+		String with the name of the event
+	@param month1
+		Integer with the month of the event
+	@param day1
+		Integer with the day of the event
+	@param year1
+		Integer with the year 
+	@param hour1
+		Integer with the hour
+	@param minutes1
+		Integer with the minutes
+	*/
 	public void addEvent(Calendar date, String event, int month1, int day1, int year1, int hour1, int minutes1){
 		ENode u = new ENode(date, event, null, month1, day1, year1, hour1, minutes1);
 		if(isEmpty()){
