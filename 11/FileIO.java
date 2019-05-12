@@ -4,6 +4,14 @@ import java.util.Scanner;
 
 public class FileIO{
 	
+	/**
+	 * Method reads in string from events file and creates
+	 * a priority queue of the events
+	 * @param file
+	 * 		filepath of text file that stores events
+	 * @return
+	 * 		priority queue of events in the text file
+	 */
 	public PriorityQueue getEvents(String file) {
 		try {
 			Scanner scanEvents = new Scanner(new FileInputStream(file));
@@ -42,6 +50,14 @@ public class FileIO{
 		return null;
 	}
 
+	/**
+	 * Method reads in a string of person objects from a text file
+	 * and stores the data as a hash table of person objects
+	 * @param file
+	 * 		file where person objects are written
+	 * @return
+	 * 		hash table of people in the system
+	 */
     public HashTable getHash(String file){
 		//this try-catch statement is needed around this file input code
 		//because the FileInputStream may throw a FileNotFoundException
