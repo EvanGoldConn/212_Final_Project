@@ -706,6 +706,10 @@ class ConnBookMain{
 				System.out.println(" \t \t |--------------|");
 				System.out.println("\n \n \n");
 			}
+
+
+
+			// ====================================== + Special Admin Log In + =================================== \\
 			else if(option.equals("adlog")){
 				Scanner admin = new Scanner(System.in);
 				String optionALog = "";
@@ -738,6 +742,8 @@ class ConnBookMain{
 					}
 				}
 			}
+
+			// ====================================== + End Special Admin Log In + =================================== \\
 
 		}
 	}
