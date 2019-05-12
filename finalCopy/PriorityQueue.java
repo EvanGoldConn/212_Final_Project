@@ -15,7 +15,7 @@ public class PriorityQueue{
 		events = new ENode[N]; //creates an ENode array capable of holding 1000 events
 	}
 	
-	/*sets the left child of p to 2 times that value
+	/**sets the left child of p to 2 times that value
 	@param p  
 		integer index of the parent node
 	*/
@@ -23,7 +23,7 @@ public class PriorityQueue{
 		return 2*p;
 	}
 	
-	/*sets the right child of p to 2 times that value +1
+	/**sets the right child of p to 2 times that value +1
 	@param p  
 		integer index of the parent node
 	*/
@@ -31,7 +31,7 @@ public class PriorityQueue{
 		return 2*p+1;
 	}
 
-	/*finds the parent of c by dividing the child by 2
+	/**finds the parent of c by dividing the child by 2
 	@param c  
 		integer index of the child node
 	*/
@@ -39,7 +39,7 @@ public class PriorityQueue{
 		return c/2;
 	}
 	
-	/*swaps two nodes at locations i and j
+	/**swaps two nodes at locations i and j
 	@param i  
 		integer index of the first node
 	@param j
@@ -51,7 +51,7 @@ public class PriorityQueue{
 		events[j] = temp;	//sets the temp to the event j location 
 	}
 
-	/*creates new event
+	/**creates new event
 	@param userCal  
 		Calendar object with actual current date
 	@param event
@@ -91,7 +91,7 @@ public class PriorityQueue{
 		}
 	}
 	
-	/*displays events*/
+	/**displays events*/
 	public void displayPQEvents(){
 		for(int i = 1; i <= n; i++){ //loops through all events
 			System.out.println(i+"."+events[i].getEvent()); //prints the event
@@ -99,13 +99,13 @@ public class PriorityQueue{
 		}
 	}
 
-	/*displays the next event*/
+	/**displays the next event*/
 	public void displayNextEvent(){ 
 		System.out.println(events[1].getEvent()); //gets the event that is coming up next 
 		System.out.println("\t"+events[1].getDate().getTime()); //displays the date
 	}
 
-	/*allows user to keep an event, delete an event or quit from the events*/
+	/**allows user to keep an event, delete an event or quit from the events*/
 	public ENode returnObject(){
 		boolean answered = true;
 		for(int i = 1; i < n && answered == true; i++){ //loops through all events 
@@ -140,7 +140,7 @@ public class PriorityQueue{
 		return null;
 	}
 		
-	/*boolean method to determine if the index i has a smaller child*/
+	/**boolean method to determine if the index i has a smaller child*/
 	private boolean hasSmallerChild(int i) {
 		if(rightChild(i) <= n && events[rightChild(i)].getMiliTime()<events[i].getMiliTime()) {
 			//case for the right child
@@ -154,7 +154,7 @@ public class PriorityQueue{
 		return false; //both children are larger 
 	}
 
-	/*gets rid of the most next event*/
+	/**gets rid of the most next event*/
 	public ENode extractMin(){
 		swap(1, n); //swap root w/ last node
 		n--;
