@@ -14,7 +14,7 @@ public class Person {
     private Timeline timeline;
     private BSTFriends friends;
 
-    /*creats a person object based on user inputs
+    /**creats a person object based on user inputs
     
     @param f
             String of the user's first name
@@ -39,43 +39,43 @@ public class Person {
     }
 
     
-    /*combines first and last names into one string*/
+    /**combines first and last names into one string*/
     public String getFullName() {
          return firstName + " " + lastName;
     }
     
-    /*returns first name*/
+    /**returns first name*/
     public String getFirstName() {
         return firstName;
     }
     
-    /*returns last name*/
+    /**returns last name*/
     public String getLastName() {
         return lastName;
     }
     
-    /*returns user's password*/
+    /**returns user's password*/
     public String getPassword(){
         return pass;
     }
 
-    /*returns user's email*/
+    /**returns user's email*/
     public String getEmail(){
         return email;
     }
 
     // ======= Used for File Writing ONLY ======== \\
-    /*returns timeline*/
+    /**returns timeline*/
     public Timeline getTimeline() {
         return timeline;
     }
     
-    /*returns events*/
+    /**returns events*/
     public Events getPersonEvent(){
         return events;
     }
     
-    /*returns friends*/
+    /**returns friends*/
     public BSTFriends getPersonFriends(){
         return friends;
     }
@@ -84,13 +84,13 @@ public class Person {
 
     // ============================================\\
 
-    /*returns grad year*/
+    /**returns grad year*/
     public int getYear(){
         return gradYear;
     }
 
 
-    /*creates and returns an email key*/
+    /**creates and returns an email key*/
     public String getEmailKey() {
         int i = 0;
         String emailKey = "";
@@ -101,7 +101,7 @@ public class Person {
         return emailKey;
     }
 
-    /*creates and returns an email key*/
+    /**creates and returns an email key*/
     private String returnEmailKey(String inputEmail){
         int i = 0;
         String emailKey = "";
@@ -115,7 +115,7 @@ public class Person {
 
     // ================= Timeline manipulation ================== \\
 
-    /*takes two strings and combines then into one "post"
+    /**takes two strings and combines then into one "post"
     
     @param v
             String that is the text
@@ -126,18 +126,18 @@ public class Person {
         timeline.addPost(v, c);
     }
 
-    /*takes n as a value of how many timeline posts to display*/
+    /**takes n as a value of how many timeline posts to display*/
     public void displayTimeline(int n) {
         timeline.displayTimeline(n);
     }
     
-    /*recursive call on the timeline*/
+    /**recursive call on the timeline*/
     public void loginTimeline() {
         timeline.loginTimeline();
     }
     // ======================== BSTFriends manipulation ============== \\
     
-    /*adds a friend based on their email
+    /**adds a friend based on their email
     
     @param email
             String that is an email
@@ -147,7 +147,7 @@ public class Person {
         friends.addFriend(emailKey); //add's friend to friends
     }
 
-    /*finds friend in "friends" based on the key
+    /**finds friend in "friends" based on the key
     
     @param key
             String that is the friends full email
@@ -158,7 +158,7 @@ public class Person {
         return friend;
     }
 
-    /*removes friend based on email*/
+    /**removes friend based on email*/
     public void removeFriend(String email) {
         String emailKey = returnEmailKey(email); //uses email to get the key
         // System.out.println("key"+" "+emailKey);
@@ -174,7 +174,7 @@ public class Person {
         }
     }
 
-    /*prints out friends using inOrder traversal*/
+    /**prints out friends using inOrder traversal*/
     public void printFriends(){
         if(friends.size() > 0){ //if more than one friend
             friends.setCounter(); //sets counter to zero
@@ -187,7 +187,7 @@ public class Person {
         }
     }
     
-    /*uses the HashTable to display the friends and their latest timeline posts/events */
+    /**uses the HashTable to display the friends and their latest timeline posts/events */
     public void showFriends(HashTable table){
         if(friends.size() > 0){  //if more than one friend...
             friends.setCounter();
@@ -238,7 +238,7 @@ public class Person {
 
     // ---------------------------------------------------------------- \\
     // ===================== event manipulation ==================== \\
-    /*adds an event with the time and the name of the event
+    /**adds an event with the time and the name of the event
     @param date
             Takes the actual date
     @param event
@@ -258,7 +258,7 @@ public class Person {
         events.addEvent(date, event, month, day, year, hour, minutes);
     }
 
-    /*displays the events*/
+    /**displays the events*/
     public void displayEvents() {
         events.displayEvents();
     }
