@@ -21,27 +21,45 @@ public class ENode{
 		minutes = minutes1;
 
 	}
-
+	/**
+	* @return 
+	*	integer that holds the month 
+	*/
 	public int rMonth(){
 		return month;
 	}
-
+	/**
+	* @return 
+	*	integer that holds the day 
+	*/
 	public int rDay(){
 		return day;
 	}
-
+	/**
+	* @return 
+	*	integer that holds the year 
+	*/
 	public int rYear(){
 		return year;
 	}
-
+	/**
+	* @return 
+	*	integer that holds the hour 
+	*/
 	public int rHour(){
 		return hour;
 	}
-
+	/**
+	* @return 
+	*	integer that holds the minutes 
+	*/
 	public int rMin(){
 		return minutes;
 	}
-
+	/**
+	* @return 
+	*	String that holds the dates, concatenated and seperated by space 
+	*/
 	public String returnDates(){
     	String m, d, y, h, min;
     	m = Integer.toString(month);
@@ -57,24 +75,41 @@ public class ENode{
 
     }
 
-
+    /**
+	* @return 
+	*	ENode that holds the next node 
+	*/
 	public ENode getNext(){
 		return next;
 
 	}
-
+	/**
+	* @param v
+	* 	an ENode that will be set to the next of the current node
+	* @return 
+	*	integer that holds the month 
+	*/
 	public void setNext(ENode v){
 		next = v;
 	}
-
+	/**
+	* @return 
+	*	long type that holds the milliseconds of the current node 
+	*/
 	public long getMiliTime(){
 		return date.getTimeInMillis();
 	}
-
+	/**
+	* @return 
+	*	string that holds the event details 
+	*/
 	public String getEvent(){
 		return event;
 	}
-
+	/**
+	* @return 
+	*	Calendar object that holds the date of teh current node 
+	*/
 	public Calendar getDate(){
 		return date;
 	}
