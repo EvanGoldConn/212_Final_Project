@@ -20,7 +20,7 @@ public class Timeline{
 		return head;
 	}
 
-	/*returns the size of the linked list*/
+	/**returns the size of the linked list*/
 	public int getSize() {
 		return size;
 	}
